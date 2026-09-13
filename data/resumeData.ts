@@ -58,7 +58,7 @@ export const personalInfo: PersonalInfo = {
   phone: "+91 7397303538",
   location: "Chennai, India",
   github: "https://github.com/aneeshkashyap",
-  linkedin: "https://linkedin.com/in/aneesh-kashyap-k-s",
+  linkedin: "https://www.linkedin.com/in/aneesh-kashyap-k-s-146a7b371/",
   bio: "I build analytical solutions that transform raw datasets into actionable insights, interactive dashboards, and data-driven decisions.",
   tagline: "Computer Science Engineering Student · SVCE Chennai · 8.1 CGPA",
   status: "Open to Data Analytics, Analytics Engineering, and Software Engineering Internships",

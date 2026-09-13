@@ -96,7 +96,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
 
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com/in/aneesh-kashyap-k-s"
+            href="https://www.linkedin.com/in/aneesh-kashyap-k-s-146a7b371/"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn Profile"
@@ -178,7 +178,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                 <GithubIcon size={16} />
               </a>
               <a
-                href="https://linkedin.com/in/aneesh-kashyap-k-s"
+                href="https://www.linkedin.com/in/aneesh-kashyap-k-s-146a7b371/"
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-lg bg-zinc-900 text-zinc-400"
