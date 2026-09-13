@@ -4,13 +4,16 @@ import React, { useState, useMemo } from "react";
 import projects, { Project } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
-import { Search, Filter, Database, Sparkles } from "lucide-react";
+import { Search, Database, FileText } from "lucide-react";
+import { LinkedinIcon } from "@/components/Icons";
+import { personalInfo } from "@/data/resumeData";
 
 interface ProjectsGridProps {
   onOpenPlayground?: () => void;
+  onOpenResume?: () => void;
 }
 
-export default function ProjectsGrid({ onOpenPlayground }: ProjectsGridProps) {
+export default function ProjectsGrid({ onOpenPlayground, onOpenResume }: ProjectsGridProps) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -38,13 +41,13 @@ export default function ProjectsGrid({ onOpenPlayground }: ProjectsGridProps) {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-3">
             <Database size={13} />
-            <span>Curated Portfolio Projects</span>
+            <span>Verified Project Deliverables</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             Data Analytics & Engineering Projects
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl">
-            Each project represents an end-to-end analytical workflow: from raw dataset cleaning and feature engineering to statistical inference and interactive visualization.
+          <p className="text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl font-sans">
+            Each project represents an end-to-end analytical workflow: from raw dataset cleaning and feature engineering to statistical inference, visual evidence, and downloadable artifacts.
           </p>
         </div>
 
@@ -95,6 +98,36 @@ export default function ProjectsGrid({ onOpenPlayground }: ProjectsGridProps) {
           ))}
         </div>
       )}
+
+      {/* Phase 9: Subtle Post-Projects Recruiter CTA */}
+      <div className="mt-12 p-6 sm:p-7 rounded-3xl bg-zinc-950/60 border border-zinc-800/80 backdrop-blur-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h3 className="text-base sm:text-lg font-bold text-white font-mono">
+            Interested in my work?
+          </h3>
+          <p className="text-xs sm:text-sm text-zinc-400 mt-1 font-sans">
+            I am actively seeking internship opportunities in data analytics, analytics engineering, AI/ML, and software engineering.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <button
+            onClick={onOpenResume}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/35 text-xs font-mono font-semibold transition-all shadow-sm"
+          >
+            <FileText size={13} />
+            <span>View Resume</span>
+          </button>
+          <a
+            href={personalInfo.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white border border-zinc-800 text-xs font-mono transition-all"
+          >
+            <LinkedinIcon size={13} />
+            <span>Connect on LinkedIn</span>
+          </a>
+        </div>
+      </div>
 
       {/* Deep-dive Case Study Modal */}
       <ProjectModal

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import WhatIBuild from "@/components/WhatIBuild";
 import DataCanvas from "@/components/DataCanvas";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import DataPlayground from "@/components/DataPlayground";
@@ -44,8 +45,14 @@ export default function PortfolioClient() {
           onOpenContact={handleScrollToContact}
         />
 
+        {/* 1.5 What I Build (Concise Capability Overview) */}
+        <WhatIBuild />
+
         {/* 2. Featured Projects & Case Studies (Primary Proof of Ability) */}
-        <ProjectsGrid onOpenPlayground={handleScrollToPlayground} />
+        <ProjectsGrid
+          onOpenPlayground={handleScrollToPlayground}
+          onOpenResume={handleOpenResume}
+        />
 
         {/* 3. Interactive EDA Lab (Hands-on Exploration) */}
         <DataPlayground />
@@ -57,7 +64,7 @@ export default function PortfolioClient() {
         <ExperienceTimeline />
 
         {/* 6. Direct Contact & Professional Inquiry */}
-        <ContactSection />
+        <ContactSection onOpenResume={handleOpenResume} />
       </main>
 
       {/* Footer */}

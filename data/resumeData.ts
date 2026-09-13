@@ -27,11 +27,13 @@ export interface Internship {
   techStack: string[];
 }
 
+export type SkillLevel = "Core" | "Project Tested" | "Working Knowledge" | "Familiar";
+
 export interface SkillItem {
   name: string;
-  level: "Core" | "Advanced" | "Working Knowledge";
+  level: SkillLevel;
+  evidence: string;
   highlight?: boolean;
-  context?: string;
 }
 
 export interface SkillCategory {
@@ -48,6 +50,20 @@ export interface LeadershipRole {
   previousRole: string;
   description: string;
   achievements: string[];
+}
+
+export interface ExploringTopic {
+  title: string;
+  description: string;
+  status: string;
+}
+
+export interface Achievement {
+  name: string;
+  organization: string;
+  year: string;
+  context: string;
+  type: "Academic" | "Leadership" | "Internship";
 }
 
 export const personalInfo: PersonalInfo = {
@@ -70,126 +86,157 @@ export const personalInfo: PersonalInfo = {
 
 export const internships: Internship[] = [
   {
-    role: "Machine Learning Intern",
-    company: "Future Interns",
-    duration: "1 Month",
-    period: "Internship",
-    badge: "ML Engineering",
-    bullets: [
-      "Developed end-to-end machine learning pipelines for customer churn classification, sales forecasting, and a semantic support chatbot.",
-      "Engineered preprocessing routines, feature transformations, hyperparameter tuning, and cross-validated model evaluation metrics.",
-      "Integrated prediction endpoints into interactive web interfaces using Streamlit and Python for stakeholder demonstration."
-    ],
-    keyHighlights: [
-      "Customer Churn Web App: Feature importance evaluation and risk classification",
-      "Sales Forecasting: Time-series trend analysis and rolling baseline projections",
-      "Customer Support Chatbot: Semantic response retrieval with context handling"
-    ],
-    techStack: ["Python", "Scikit-learn", "Pandas", "NumPy", "Streamlit", "NLP"]
-  },
-  {
     role: "Data Analytics Intern",
     company: "3Skill",
     duration: "2 Months",
     period: "Internship",
     badge: "Data Analytics & EDA",
     bullets: [
-      "Conducted exploratory data analysis on 103,000+ ride bookings to isolate cancellation patterns across vehicle categories and turnaround times.",
-      "Analyzed multi-variable environmental sensor data from Delhi CPCB to quantify temporal PM2.5 and PM10 variations and seasonal shifts.",
-      "Evaluated 30,000 retail footwear orders to determine product category turnover, pricing elasticity, and revenue concentration across channels."
+      "Conducted exploratory data analysis on 103,024 ride bookings to isolate cancellation patterns across 10 vehicle categories and turnaround times.",
+      "Analyzed 52,560 hourly environmental sensor readings from Delhi stations to quantify seasonal PM2.5/PM10 spikes and thermal inversion (r = -0.78).",
+      "Evaluated 30,000 retail footwear transactions across 6 global markets ($9.08M gross) to determine category velocity and discount elasticity boundaries."
     ],
     keyHighlights: [
-      "Ola / Uber Analysis: Evaluated V_TAT wait-time thresholds and vehicle cancellation distributions",
-      "Delhi AQI Trends: Modeled particulate pollution behavior vs. ambient seasonal variables",
-      "Footwear Sales Analytics: Identified category revenue share and discount sensitivity patterns"
+      "Ola / Uber Analysis: Isolated vehicle turnaround (V_TAT) thresholds where customer cancellations surge",
+      "Delhi AQI Modeling: Correlated particulate accumulation with surface wind deceleration (<5 km/h)",
+      "Retail Analytics: Validated mathematical parity across $9.08M gross transactions and tested discount depths"
     ],
     techStack: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Power BI", "EDA"]
+  },
+  {
+    role: "Machine Learning Intern",
+    company: "Future Interns",
+    duration: "1 Month",
+    period: "Internship",
+    badge: "ML Engineering",
+    bullets: [
+      "Developed supervised machine learning pipelines for customer churn classification, sales forecasting baselines, and a conversational support prototype.",
+      "Engineered preprocessing routines: numerical standardization, categorical one-hot encoding, and feature importance analysis using Scikit-learn.",
+      "Benchmarked model evaluation metrics (precision, recall, F1 score, confusion matrices) across trained classification baselines."
+    ],
+    keyHighlights: [
+      "Customer Churn Model: Feature importance evaluation and risk classification using Scikit-learn",
+      "Sales Forecasting: Time-series trend analysis and rolling baseline projections",
+      "Customer Support Prototype: Semantic response retrieval with structured intent mapping"
+    ],
+    techStack: ["Python", "Scikit-learn", "Pandas", "NumPy", "Streamlit", "NLP"]
   }
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Data Analytics",
+    category: "Data Analytics & Processing",
     description: "End-to-end data manipulation, validation, hypothesis formulation, and exploratory analysis.",
     iconName: "Binary",
     skills: [
-      { name: "Python", level: "Core", highlight: true, context: "Primary language across all data workflows" },
-      { name: "Pandas", level: "Core", highlight: true, context: "Data manipulation, grouping, aggregations" },
-      { name: "NumPy", level: "Core", highlight: true, context: "Vectorized calculations & numerical arrays" },
-      { name: "SQL", level: "Core", highlight: true, context: "Relational queries, joins, window functions" },
-      { name: "Exploratory Data Analysis (EDA)", level: "Core", highlight: true, context: "Distribution checks, correlations, outlier audit" },
-      { name: "Data Cleaning & Preprocessing", level: "Core", highlight: true, context: "Null imputation, type casting, standardization" },
-      { name: "Feature Engineering", level: "Advanced", context: "Temporal derivations, encoding, ratio features" },
-      { name: "Statistical Analysis", level: "Advanced", context: "Summary statistics, variance, hypothesis testing" }
+      { name: "Python", level: "Core", highlight: true, evidence: "Primary language across all 4 analytics projects and ML workflows" },
+      { name: "Pandas", level: "Core", highlight: true, evidence: "Data cleaning, aggregation, grouping & filtering on 100k+ records" },
+      { name: "NumPy", level: "Core", highlight: true, evidence: "Vectorized array calculations, numerical transformations & stats" },
+      { name: "SQL", level: "Core", highlight: true, evidence: "Relational queries, multi-table joins, aggregations & filtering" },
+      { name: "Exploratory Data Analysis (EDA)", level: "Core", highlight: true, evidence: "Distribution diagnostics, correlation matrices & outlier auditing" },
+      { name: "Data Cleaning & Preprocessing", level: "Core", highlight: true, evidence: "Handling nulls, datetime parsing & categorical standardization" },
+      { name: "Feature Engineering", level: "Project Tested", evidence: "Temporal derivations, ordinal encoding & turnaround derivations" },
+      { name: "Statistical Analysis", level: "Project Tested", evidence: "Descriptive statistics, variance, Pearson correlation & hypothesis checks" }
     ]
   },
   {
-    category: "Data Visualization",
+    category: "Business Intelligence & Visualization",
     description: "Transforming complex datasets into clear, informative charts, reports, and interactive dashboards.",
     iconName: "BarChart3",
     skills: [
-      { name: "Power BI", level: "Core", highlight: true, context: "Interactive business reports & data modeling" },
-      { name: "Matplotlib", level: "Core", context: "Publication-grade exploratory plots" },
-      { name: "Seaborn", level: "Core", highlight: true, context: "Statistical distributions, heatmaps, pairplots" },
-      { name: "Plotly", level: "Working Knowledge", context: "Dynamic web-ready chart visualizers" },
-      { name: "Interactive Dashboards", level: "Advanced", highlight: true, context: "Client-side responsive analytical views" }
+      { name: "Power BI", level: "Project Tested", highlight: true, evidence: "Built 3 multi-page interactive dashboards with DAX measures" },
+      { name: "Matplotlib", level: "Core", evidence: "Histograms, scatter visualizers & distribution plots in notebooks" },
+      { name: "Seaborn", level: "Core", highlight: true, evidence: "Statistical distributions, correlation heatmaps & KDE plots" },
+      { name: "Recharts", level: "Project Tested", highlight: true, evidence: "Engineered web-based radar & bar visualizers for T20 cricket app" },
+      { name: "Interactive Dashboards", level: "Project Tested", evidence: "Connected client-side visual controls for real-time data slicing" }
     ]
   },
   {
-    category: "Machine Learning",
+    category: "Applied Machine Learning",
     description: "Supervised classification, regression models, time-series baselines, and evaluation metrics.",
     iconName: "BrainCircuit",
     skills: [
-      { name: "Scikit-learn", level: "Core", highlight: true, context: "Model pipelines, transformers, estimators" },
-      { name: "Classification", level: "Advanced", highlight: true, context: "Churn prediction, logistic, decision trees" },
-      { name: "Regression", level: "Advanced", context: "Continuous value estimation & price modeling" },
-      { name: "Model Evaluation", level: "Advanced", highlight: true, context: "Precision, recall, F1, ROC-AUC, RMSE" },
-      { name: "Time-Series Forecasting", level: "Working Knowledge", context: "Rolling windows, trend analysis" }
+      { name: "Scikit-learn", level: "Working Knowledge", highlight: true, evidence: "Model pipelines, transformers & estimators at Future Interns" },
+      { name: "Classification Modeling", level: "Working Knowledge", highlight: true, evidence: "Customer churn risk classification using logistic & tree models" },
+      { name: "Model Evaluation", level: "Working Knowledge", evidence: "Benchmarked precision, recall, F1 scores & confusion matrices" },
+      { name: "Time-Series Baselines", level: "Working Knowledge", evidence: "Moving averages, rolling windows & seasonal trend tracking" }
     ]
   },
   {
-    category: "Programming",
-    description: "Computer science foundations, algorithmic problem solving, and object-oriented design.",
+    category: "Programming & Web Engineering",
+    description: "Computer science foundations, modern web frontends, component architecture, and version control.",
     iconName: "Code2",
     skills: [
-      { name: "Python", level: "Core", highlight: true, context: "Data scripting, OOP, libraries" },
-      { name: "Java", level: "Working Knowledge", context: "Academic coursework & OOP principles" },
-      { name: "JavaScript / TypeScript", level: "Advanced", highlight: true, context: "Interactive dashboards & frontend logic" },
-      { name: "C++", level: "Working Knowledge", context: "Core data structures & algorithm implementation" }
+      { name: "TypeScript / JavaScript", level: "Project Tested", highlight: true, evidence: "Built this responsive portfolio & interactive EDA lab" },
+      { name: "React & Next.js", level: "Project Tested", highlight: true, evidence: "App router, SSR, static generation & custom component design" },
+      { name: "Tailwind CSS", level: "Project Tested", evidence: "Utility design tokens, dark/light themes & high-contrast layouts" },
+      { name: "Git & GitHub", level: "Core", highlight: true, evidence: "Branch management, repository documentation & version history" },
+      { name: "C++ / Java", level: "Familiar", evidence: "Academic coursework covering core data structures & OOP" }
     ]
   },
   {
-    category: "Databases",
+    category: "Database Systems",
     description: "Relational data modeling, schema understanding, and structured querying.",
     iconName: "Layout",
     skills: [
-      { name: "MySQL", level: "Core", highlight: true, context: "Relational queries, indexing, constraints" },
-      { name: "PostgreSQL", level: "Working Knowledge", context: "Structured analytics and aggregations" },
-      { name: "SQLite", level: "Core", context: "Lightweight local analytical storage" }
+      { name: "MySQL", level: "Core", highlight: true, evidence: "Relational queries, primary/foreign keys & table indexing" },
+      { name: "PostgreSQL", level: "Working Knowledge", evidence: "Structured analytical queries, aggregations & filtering" },
+      { name: "SQLite", level: "Project Tested", evidence: "Local analytical storage & test database setups" }
     ]
+  }
+];
+
+export const currentlyExploring: ExploringTopic[] = [
+  {
+    title: "Advanced SQL & Query Optimization",
+    description: "Complex analytical window functions, recursive CTEs, query plan profiling, and index tuning.",
+    status: "Active Practice"
   },
   {
-    category: "Web / Engineering",
-    description: "Modern web frontends, component architecture, version control, and collaboration.",
-    iconName: "Cpu",
-    skills: [
-      { name: "React", level: "Advanced", highlight: true, context: "Component state, hooks, interactive UI" },
-      { name: "Next.js", level: "Advanced", highlight: true, context: "SSR, static generation, app router" },
-      { name: "Tailwind CSS", level: "Advanced", context: "Responsive design & design system tokens" },
-      { name: "Git", level: "Core", highlight: true, context: "Branching, commits, workflow management" },
-      { name: "GitHub", level: "Core", highlight: true, context: "Repository hosting, documentation, releases" }
-    ]
+    title: "Data Engineering Pipelines",
+    description: "ETL pipeline orchestration, schema evolution, and automated ingestion workflows for analytical stores.",
+    status: "Practical Exploration"
   },
   {
-    category: "AI-Assisted Development",
-    description: "Using AI-assisted developer tools for rapid prototyping, debugging, documentation, and development acceleration.",
-    iconName: "Sparkles",
-    skills: [
-      { name: "Claude Code", level: "Advanced", highlight: true, context: "Codebase refactoring, terminal workflow" },
-      { name: "AI-Assisted Coding", level: "Advanced", highlight: true, context: "Rapid prototyping & test-case generation" },
-      { name: "Prompt Engineering", level: "Advanced", context: "Structured prompting for analytical tasks" },
-      { name: "Jupyter Notebook", level: "Core", highlight: true, context: "Reproducible research & data exploration" }
-    ]
+    title: "PostgreSQL & Database Internals",
+    description: "Deep dive into ACID transactions, query planner mechanisms, and table partitioning strategies.",
+    status: "Coursework & Practice"
+  },
+  {
+    title: "FastAPI Analytical Microservices",
+    description: "Deploying Python data transformation routines and inference pipelines as lightweight REST APIs.",
+    status: "Prototyping"
+  }
+];
+
+export const verifiedAchievements: Achievement[] = [
+  {
+    name: "Elected Membership Chair",
+    organization: "SVCE ACM Student Chapter",
+    year: "2026–2027",
+    context: "Promoted from Design Executive (2025–2026); coordinate technical student onboarding and hands-on coding workshops.",
+    type: "Leadership"
+  },
+  {
+    name: "Academic Standing — 8.1 CGPA",
+    organization: "Sri Venkateswara College of Engineering (SVCE)",
+    year: "2023–Present",
+    context: "B.E. Computer Science & Engineering; strong performance in Data Structures, DBMS, and Probability & Statistics.",
+    type: "Academic"
+  },
+  {
+    name: "3Skill Data Analytics Internship Deliverables",
+    organization: "3Skill",
+    year: "2024",
+    context: "Completed 3 end-to-end analytical project deliverables across urban mobility, air quality, and retail footwear.",
+    type: "Internship"
+  },
+  {
+    name: "Future Interns Machine Learning Internship",
+    organization: "Future Interns",
+    year: "2024",
+    context: "Constructed supervised ML classification pipelines with documented precision, recall, and evaluation metrics.",
+    type: "Internship"
   }
 ];
 

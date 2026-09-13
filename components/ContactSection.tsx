@@ -10,11 +10,16 @@ import {
   Send,
   MessageSquare,
   Sparkles,
+  FileText,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { personalInfo } from "@/data/resumeData";
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  onOpenResume?: () => void;
+}
+
+export default function ContactSection({ onOpenResume }: ContactSectionProps) {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [formName, setFormName] = useState("");
@@ -134,27 +139,47 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Social Buttons */}
-            <div className="flex items-center gap-3 pt-2">
+            {/* Social Buttons & Resume */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-2">
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white border border-zinc-800 font-mono text-xs transition-all"
+                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white border border-zinc-800 font-mono text-xs transition-all"
               >
                 <GithubIcon size={14} />
-                <span>github.com/aneeshkashyap</span>
+                <span>GitHub</span>
               </a>
 
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white border border-zinc-800 font-mono text-xs transition-all"
+                className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white border border-zinc-800 font-mono text-xs transition-all"
               >
                 <LinkedinIcon size={14} />
-                <span>LinkedIn Profile</span>
+                <span>LinkedIn</span>
               </a>
+
+              {onOpenResume ? (
+                <button
+                  onClick={onOpenResume}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 hover:text-white border border-cyan-500/30 font-mono text-xs font-semibold transition-all"
+                >
+                  <FileText size={14} />
+                  <span>Resume (ATS)</span>
+                </button>
+              ) : (
+                <a
+                  href="/Aneesh_Kashyap_Resume.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 hover:text-white border border-cyan-500/30 font-mono text-xs font-semibold transition-all"
+                >
+                  <FileText size={14} />
+                  <span>Resume (PDF)</span>
+                </a>
+              )}
             </div>
           </div>
 

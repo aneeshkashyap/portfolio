@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { internships, leadership, education } from "@/data/resumeData";
+import { internships, leadership, education, verifiedAchievements } from "@/data/resumeData";
 import {
   Briefcase,
   GraduationCap,
@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Sparkles,
   Building,
+  ShieldCheck,
 } from "lucide-react";
 
 export default function ExperienceTimeline() {
@@ -25,8 +26,8 @@ export default function ExperienceTimeline() {
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
           Internships, Education & ACM
         </h2>
-        <p className="text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl">
-          Practical industry internships in machine learning and data analytics, computer science education at SVCE, and elected leadership at the ACM Student Chapter.
+        <p className="text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl font-sans">
+          Industry internships in machine learning and data analytics, computer science engineering education at SVCE, and elected leadership at the ACM Student Chapter.
         </p>
       </div>
 
@@ -39,7 +40,7 @@ export default function ExperienceTimeline() {
           </h3>
 
           <div className="space-y-6 relative border-l-2 border-zinc-800 ml-3 pl-6">
-            {internships.map((internship, idx) => (
+            {internships.map((internship) => (
               <div key={internship.company} className="relative group">
                 {/* Node dot */}
                 <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-zinc-950 border-2 border-cyan-400 shadow-md shadow-cyan-500/30 group-hover:scale-125 transition-transform" />
@@ -70,7 +71,7 @@ export default function ExperienceTimeline() {
                   {/* Bullet points */}
                   <ul className="space-y-2">
                     {internship.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                      <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
                         <CheckCircle2 size={15} className="text-emerald-400 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
@@ -191,7 +192,7 @@ export default function ExperienceTimeline() {
                 {leadership.previousRole}
               </div>
 
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
                 {leadership.description}
               </p>
 
@@ -205,6 +206,50 @@ export default function ExperienceTimeline() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* PHASE 8: COMPACT VERIFIED ACHIEVEMENTS SECTION */}
+      <div className="mt-14 pt-10 border-t border-zinc-850">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-2">
+            <ShieldCheck size={18} className="text-cyan-400" />
+            <h3 className="text-lg sm:text-xl font-bold text-white font-mono">
+              Verified Credentials & Milestones
+            </h3>
+          </div>
+          <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
+            Authentic & Documented
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          {verifiedAchievements.map((ach) => (
+            <div
+              key={ach.name}
+              className="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                    {ach.year}
+                  </span>
+                  <span className="text-[10px] font-mono text-cyan-400/90 font-medium">
+                    {ach.type}
+                  </span>
+                </div>
+                <h4 className="text-xs font-bold font-mono text-white leading-snug">
+                  {ach.name}
+                </h4>
+                <span className="text-[11px] text-zinc-400 font-mono block mt-0.5">
+                  {ach.organization}
+                </span>
+                <p className="text-[11px] text-zinc-400 mt-2 leading-relaxed font-sans">
+                  {ach.context}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
