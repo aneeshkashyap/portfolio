@@ -1,26 +1,326 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #060913;
+  --foreground: #f3f4f6;
+  --card-bg: rgba(10, 15, 29, 0.75);
+  --card-border: rgba(255, 255, 255, 0.08);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.light,
+html.light {
+  --background: #f8fafc;
+  --foreground: #090d16;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: #cbd5e1;
+  color-scheme: light !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark,
+html.dark {
+  --background: #060913;
+  --foreground: #f3f4f6;
+  --card-bg: rgba(10, 15, 29, 0.75);
+  --card-border: rgba(255, 255, 255, 0.08);
+  color-scheme: dark !important;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
+
+/* =========================================================
+   LIGHT MODE TEXT ENHANCEMENTS: ZERO FADING, MAX CONTRAST
+   ========================================================= */
+
+/* Primary Headings & Strong Labels */
+.light .text-white,
+.light .text-zinc-50,
+.light .text-zinc-100 {
+  color: #090d16 !important;
+}
+
+/* Secondary Readable Text & Descriptions */
+.light .text-zinc-200,
+.light .text-zinc-300 {
+  color: #1e293b !important;
+}
+
+/* Subtitles, Metadata & Tags (Prevents pale gray fading) */
+.light .text-zinc-400 {
+  color: #334155 !important;
+}
+
+/* Tertiary & Micro Details */
+.light .text-zinc-500 {
+  color: #475569 !important;
+}
+
+.light .text-zinc-600 {
+  color: #64748b !important;
+}
+
+/* High-Contrast Accents for Light Backgrounds */
+.light .text-cyan-400,
+.light .text-cyan-300 {
+  color: #0891b2 !important;
+}
+
+.light .text-emerald-400,
+.light .text-emerald-300 {
+  color: #059669 !important;
+}
+
+.light .text-amber-400,
+.light .text-amber-300 {
+  color: #d97706 !important;
+}
+
+.light .text-purple-400,
+.light .text-purple-300 {
+  color: #7c3aed !important;
+}
+
+.light .text-rose-400,
+.light .text-red-400 {
+  color: #dc2626 !important;
+}
+
+.light .text-blue-400 {
+  color: #2563eb !important;
+}
+
+/* Hover States */
+.light .hover\:text-white:hover {
+  color: #090d16 !important;
+}
+
+.light .hover\:text-zinc-200:hover,
+.light .hover\:text-zinc-300:hover {
+  color: #0f172a !important;
+}
+
+.light .hover\:text-cyan-300:hover,
+.light .hover\:text-cyan-400:hover {
+  color: #0e7490 !important;
+}
+
+/* =========================================================
+   LIGHT MODE CARDS, PANELS & BACKGROUNDS
+   ========================================================= */
+
+.light .bg-zinc-950,
+.light .bg-zinc-950\/95,
+.light .bg-zinc-950\/90,
+.light .bg-zinc-950\/85,
+.light .bg-zinc-950\/80,
+.light .bg-zinc-950\/70,
+.light .bg-zinc-950\/60,
+.light .bg-zinc-950\/50,
+.light .bg-zinc-950\/40 {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 4px 10px -3px rgba(15, 23, 42, 0.04);
+}
+
+.light .bg-zinc-900,
+.light .bg-zinc-900\/90,
+.light .bg-zinc-900\/80,
+.light .bg-zinc-900\/70,
+.light .bg-zinc-900\/60,
+.light .bg-zinc-900\/50,
+.light .bg-zinc-900\/40 {
+  background-color: rgba(241, 245, 249, 0.92) !important;
+}
+
+.light .bg-zinc-850,
+.light .bg-zinc-800,
+.light .bg-zinc-800\/80,
+.light .bg-zinc-800\/60,
+.light .bg-zinc-800\/40 {
+  background-color: #e2e8f0 !important;
+}
+
+.light .bg-zinc-800\/20,
+.light .bg-zinc-800\/10 {
+  background-color: rgba(226, 232, 240, 0.5) !important;
+}
+
+.light .hover\:bg-zinc-800:hover,
+.light .hover\:bg-zinc-700:hover {
+  background-color: #cbd5e1 !important;
+}
+
+.light .hover\:bg-zinc-800\/60:hover {
+  background-color: rgba(203, 213, 225, 0.7) !important;
+}
+
+/* Tinted Card Backgrounds */
+.light .bg-cyan-950\/40,
+.light .bg-cyan-950\/30,
+.light .bg-cyan-950\/20 {
+  background-color: rgba(6, 182, 212, 0.1) !important;
+}
+
+.light .bg-emerald-950\/40,
+.light .bg-emerald-950\/30,
+.light .bg-emerald-950\/20 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.light .bg-purple-950\/40,
+.light .bg-purple-950\/30 {
+  background-color: rgba(139, 92, 246, 0.1) !important;
+}
+
+.light .bg-amber-950\/40,
+.light .bg-amber-950\/30 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+}
+
+/* =========================================================
+   LIGHT MODE BORDERS & DIVIDERS
+   ========================================================= */
+
+.light .border-zinc-800,
+.light .border-zinc-800\/80,
+.light .border-zinc-800\/60,
+.light .border-zinc-850,
+.light .border-zinc-850\/80,
+.light .border-zinc-900,
+.light .border-zinc-950,
+.light .border-white\/5,
+.light .border-white\/10 {
+  border-color: #cbd5e1 !important;
+}
+
+.light .border-zinc-700 {
+  border-color: #94a3b8 !important;
+}
+
+.light .border-cyan-500\/30,
+.light .border-cyan-500\/20 {
+  border-color: rgba(8, 145, 178, 0.35) !important;
+}
+
+.light .border-emerald-500\/30,
+.light .border-emerald-500\/20 {
+  border-color: rgba(5, 150, 105, 0.35) !important;
+}
+
+.light .hover\:border-cyan-500\/50:hover,
+.light .hover\:border-cyan-500\/40:hover {
+  border-color: #0891b2 !important;
+}
+
+/* =========================================================
+   LIGHT MODE FORM CONTROLS (Inputs, Selects, Buttons)
+   ========================================================= */
+
+.light input,
+.light textarea,
+.light select {
+  background-color: #ffffff !important;
+  color: #090d16 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light select option {
+  background-color: #ffffff !important;
+  color: #090d16 !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* =========================================================
+   LIGHT MODE NAVBAR, MODALS & SPECIAL CONTAINERS
+   ========================================================= */
+
+.light header {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+.light nav {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light footer {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-top-color: #cbd5e1 !important;
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(16px);
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  border: 1px solid #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+/* Light Mode Scrollbars */
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 1px solid #94a3b8;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+
+.light .custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.8);
+}
+
+.light .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+}
+
