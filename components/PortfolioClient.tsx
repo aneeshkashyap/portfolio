@@ -8,6 +8,7 @@ import DataCanvas from "@/components/DataCanvas";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import DataPlayground from "@/components/DataPlayground";
 import SkillsMatrix from "@/components/SkillsMatrix";
+import CertificatesSection from "@/components/CertificatesSection";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -59,6 +60,9 @@ export default function PortfolioClient() {
 
         {/* 4. Technical Stack & Competencies */}
         <SkillsMatrix />
+
+        {/* 4.5 Certifications, Hackathons & Official Credentials */}
+        <CertificatesSection />
 
         {/* 5. Internships, Education & ACM Leadership */}
         <ExperienceTimeline />

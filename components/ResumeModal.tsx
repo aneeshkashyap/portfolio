@@ -272,6 +272,21 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 </li>
               </ul>
             </div>
+
+            {/* Competitions & Certifications */}
+            <div className="space-y-1.5">
+              <h2 className="text-xs font-mono uppercase tracking-wider text-cyan-400 print:text-black font-bold border-b border-zinc-800 pb-1">
+                COMPETITIONS &amp; CERTIFICATIONS
+              </h2>
+              <ul className="list-disc list-outside space-y-1 text-zinc-300 print:text-black pl-4 text-xs leading-relaxed">
+                <li>
+                  <strong className="text-white print:text-black font-semibold">
+                    Top 10 Finalist — HEATCODE 2025 Machine Learning Hackathon
+                  </strong>{" "}
+                  (FODSE, SVCE · Aug 2025): Developed an ensemble of XGBoost &amp; LightGBM regressors to predict Chennai weather temperatures, securing a verified Top 10 Kaggle leaderboard standing.
+                </li>
+              </ul>
+            </div>
           </div>
         </motion.div>
       </div>

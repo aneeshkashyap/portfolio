@@ -37,6 +37,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
     { label: "Projects", href: "#projects" },
     { label: "Data Lab", href: "#playground" },
     { label: "Skills", href: "#skills" },
+    { label: "Certificates", href: "#certificates" },
     { label: "Experience", href: "#experience" },
     { label: "Contact", href: "#contact" },
   ];

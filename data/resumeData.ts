@@ -74,7 +74,7 @@ export interface Achievement {
   organization: string;
   year: string;
   context: string;
-  type: "Academic" | "Leadership" | "Internship";
+  type: "Academic" | "Leadership" | "Internship" | "Competition";
 }
 
 export const personalInfo: PersonalInfo = {
@@ -320,6 +320,13 @@ export const currentlyExploring: ExploringTopic[] = [
 ];
 
 export const verifiedAchievements: Achievement[] = [
+  {
+    name: "HEATCODE 2025 — Top 10 ML Finalist",
+    organization: "FODSE, Sri Venkateswara College of Engineering",
+    year: "2025",
+    context: "Secured Top 10 on the Kaggle leaderboard building an ensemble of XGBoost and LightGBM regressors to predict Chennai weather.",
+    type: "Competition"
+  },
   {
     name: "SVCE ACM Membership Chair",
     organization: "SVCE ACM Student Chapter",

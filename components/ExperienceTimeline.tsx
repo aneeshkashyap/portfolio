@@ -223,22 +223,36 @@ export default function ExperienceTimeline() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3.5">
           {verifiedAchievements.map((ach) => (
             <div
               key={ach.name}
-              className="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col justify-between"
+              className={`p-4 rounded-2xl bg-zinc-950/60 border transition-all flex flex-col justify-between ${
+                ach.type === "Competition"
+                  ? "border-emerald-500/40 hover:border-emerald-400/70 shadow-md shadow-emerald-500/5 group cursor-pointer"
+                  : "border-zinc-800/80 hover:border-zinc-700"
+              }`}
+              onClick={() => {
+                if (ach.type === "Competition") {
+                  const el = document.getElementById("certificates");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                     {ach.year}
                   </span>
-                  <span className="text-[10px] font-mono text-cyan-400/90 font-medium">
+                  <span
+                    className={`text-[10px] font-mono font-medium ${
+                      ach.type === "Competition" ? "text-emerald-400" : "text-cyan-400/90"
+                    }`}
+                  >
                     {ach.type}
                   </span>
                 </div>
-                <h4 className="text-xs font-bold font-mono text-white leading-snug">
+                <h4 className="text-xs font-bold font-mono text-white leading-snug group-hover:text-emerald-300 transition-colors">
                   {ach.name}
                 </h4>
                 <span className="text-[11px] text-zinc-400 font-mono block mt-0.5">
@@ -248,6 +262,13 @@ export default function ExperienceTimeline() {
                   {ach.context}
                 </p>
               </div>
+
+              {ach.type === "Competition" && (
+                <div className="mt-3 pt-2 border-t border-zinc-850 flex items-center gap-1 text-[10px] font-mono text-emerald-400 font-medium">
+                  <span>View Verified Certificate</span>
+                  <ChevronRight size={12} />
+                </div>
+              )}
             </div>
           ))}
         </div>
