@@ -14,18 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aneesh Kashyap | Software Engineering Intern Candidate",
+  title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
   description:
-    "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures, algorithms, ML pipelines, and full-stack web dashboards.",
+    "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards in Power BI and React.",
   keywords: [
     "Aneesh Kashyap",
-    "Software Engineering Intern",
+    "Software Engineering Candidate",
+    "Data Analyst",
     "Computer Science Engineering",
     "SVCE Chennai",
     "Python",
     "C++",
     "Object-Oriented Programming",
     "Data Structures and Algorithms",
+    "Exploratory Data Analysis",
     "Machine Learning",
     "Scikit-learn",
     "React",
@@ -33,23 +35,23 @@ export const metadata: Metadata = {
     "SQL",
     "Pandas",
     "NumPy",
-    "Data Analytics",
+    "Power BI",
     "ACM Student Chapter",
   ],
   authors: [{ name: "Aneesh Kashyap K S" }],
   openGraph: {
-    title: "Aneesh Kashyap | Software Engineering Intern Candidate",
+    title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
     description:
-      "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures, algorithms, ML pipelines, and full-stack web dashboards.",
+      "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards in Power BI and React.",
     url: "https://portfolio-five-sable-31.vercel.app/",
     siteName: "Aneesh Kashyap Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aneesh Kashyap | Software Engineering Intern Candidate",
+    title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
     description:
-      "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures, algorithms, ML pipelines, and full-stack web dashboards.",
+      "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards in Power BI and React.",
   },
 };
 

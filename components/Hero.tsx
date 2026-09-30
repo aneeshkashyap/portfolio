@@ -59,7 +59,7 @@ export default function Hero({ onOpenResume, onOpenContact }: HeroProps) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <span className="font-mono text-[11px] text-zinc-300 tracking-wide uppercase">
-              Software Engineering Intern Candidate • CS Student
+              Software Engineering Candidate • Data Analyst • CS Student
             </span>
           </div>
 
@@ -72,10 +72,10 @@ export default function Hero({ onOpenResume, onOpenContact }: HeroProps) {
               </span>
             </h1>
             <p className="text-xl sm:text-2xl font-mono text-cyan-300/90 mt-2 font-semibold">
-              Software Engineering Intern Candidate
+              Software Engineering Candidate & Data Analyst
             </p>
             <p className="text-base sm:text-lg text-zinc-300 mt-3 leading-relaxed max-w-xl">
-              Third-year Computer Science student with hands-on OOP programming experience (Python, C++) and a solid grounding in data structures, algorithms, ML pipelines, and full-stack web dashboards.
+              Third-year Computer Science student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards and visualizers in Power BI, React, and Recharts to transform complex data into actionable business decisions.
             </p>
             <p className="text-xs sm:text-sm font-mono text-zinc-400 mt-2">
               Computer Science Engineering · SVCE Chennai · 8.1 CGPA · Class of 2028
@@ -91,9 +91,9 @@ export default function Hero({ onOpenResume, onOpenContact }: HeroProps) {
             </div>
 
             <div className="p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800/80">
-              <span className="text-[11px] font-mono text-zinc-400 block">Software & ML</span>
+              <span className="text-[11px] font-mono text-zinc-400 block">Projects</span>
               <span className="text-xl font-bold font-mono text-cyan-400 mt-0.5 block">4+ Projects</span>
-              <span className="text-[10px] text-zinc-500 block">Full-Lifecycle & EDA</span>
+              <span className="text-[10px] text-zinc-500 block">Software & Analytics</span>
             </div>
 
             <div className="p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800/80">

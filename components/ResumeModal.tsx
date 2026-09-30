@@ -128,7 +128,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 {personalInfo.name}
               </h1>
               <p className="text-xs sm:text-sm font-mono tracking-wide text-cyan-400 print:text-black mt-1 font-semibold">
-                Software Engineering Intern Candidate | Computer Science Student
+                {personalInfo.role} | {personalInfo.subRole}
               </p>
 
               {/* Contact meta */}

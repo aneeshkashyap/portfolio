@@ -19,7 +19,7 @@ export default function Footer() {
             ANEESH KASHYAP K S
           </span>
           <span className="hidden sm:inline text-zinc-600">•</span>
-          <span>Software Engineering Intern Candidate • CS Student</span>
+          <span>Software Engineering Candidate &amp; Data Analyst • CS Student</span>
           <span className="hidden sm:inline text-zinc-600">•</span>
           <span className="text-emerald-400">SVCE Chennai</span>
         </div>

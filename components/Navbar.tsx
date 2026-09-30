@@ -61,7 +61,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             </span>
             <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>SOFTWARE ENGINEERING INTERN CANDIDATE</span>
+              <span>SOFTWARE ENGINEERING CANDIDATE &amp; DATA ANALYST</span>
             </div>
           </div>
         </Link>
