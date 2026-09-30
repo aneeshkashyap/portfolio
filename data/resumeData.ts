@@ -43,6 +43,17 @@ export interface SkillCategory {
   skills: SkillItem[];
 }
 
+export interface ResumeSkillEntry {
+  category: string;
+  details: string;
+}
+
+export interface ResumeProject {
+  title: string;
+  techStack: string;
+  bullets: string[];
+}
+
 export interface LeadershipRole {
   title: string;
   organization: string;
@@ -68,23 +79,40 @@ export interface Achievement {
 
 export const personalInfo: PersonalInfo = {
   name: "ANEESH KASHYAP K S",
-  role: "Data Analyst & Analytics Engineer",
-  subRole: "Computer Science Engineering Student",
+  role: "Software Engineering Intern Candidate",
+  subRole: "Computer Science Student",
   email: "ksaneeshkashyap@gmail.com",
   phone: "+91 7397303538",
-  location: "Chennai, India",
+  location: "Chennai",
   github: "https://github.com/aneeshkashyap",
-  linkedin: "https://www.linkedin.com/in/aneesh-kashyap-k-s-146a7b371/",
-  bio: "I build analytical solutions that transform raw datasets into actionable insights, interactive dashboards, and data-driven decisions.",
+  linkedin: "https://linkedin.com/in/aneeshkashyap-k-s",
+  bio: "Third-year Computer Science Engineering student with over a year of hands-on OOP programming experience (Python, C++) and a solid grounding in data structures and algorithms. Proven ability to apply sound, creative engineering to solve real problems end-to-end -- from gathering requirements to building, testing, and deploying a solution. Experience spans full-lifecycle software projects (ML pipelines, web dashboards) in cooperative team and internship settings, with a track record of quickly learning new tools, incorporating feedback, and following engineering best practices to improve reliability and usability.",
   tagline: "Computer Science Engineering Student · SVCE Chennai · 8.1 CGPA",
-  status: "Open to Data Analytics, Analytics Engineering, and Software Engineering Internships",
-  semester: "5th Semester (3rd Year)",
+  status: "Open to Software Engineering, Machine Learning, and Data Analytics Internships",
+  semester: "5th Semester (at least 3 semesters remaining)",
   cgpa: "8.1 / 10",
   graduationYear: "2028",
-  college: "Sri Venkateswara College of Engineering (SVCE) | Chennai",
+  college: "Sri Venkateswara College of Engineering | Chennai",
 };
 
 export const internships: Internship[] = [
+  {
+    role: "Machine Learning Intern",
+    company: "Future Interns",
+    duration: "1 Month",
+    period: "Internship",
+    badge: "ML Engineering & Pipelines",
+    bullets: [
+      "Applied object-oriented Python to design and build three end-to-end software pipelines -- a Customer Churn Prediction web app, a Sales Forecasting system, and a Customer Support Semantic Chat-bot -- solving distinct business problems through sound engineering design.",
+      "Owned the full project life-cycle (requirements, data preprocessing, model building, evaluation, and deployment integration), iterating on usability based on feedback to improve each solution's reliability and performance."
+    ],
+    keyHighlights: [
+      "Customer Churn Pipeline: End-to-end OOP web application with Scikit-learn classification & risk evaluation",
+      "Sales Forecasting System: Time-series trend analysis and rolling baseline projection pipeline",
+      "Semantic Support Bot: Intent-mapped conversational prototype with structured response retrieval"
+    ],
+    techStack: ["Python", "Scikit-learn", "Pandas", "NumPy", "Streamlit", "NLP", "OOP"]
+  },
   {
     role: "Data Analytics Intern",
     company: "3Skill",
@@ -92,181 +120,264 @@ export const internships: Internship[] = [
     period: "Internship",
     badge: "Data Analytics & EDA",
     bullets: [
-      "Conducted exploratory data analysis on 103,024 ride bookings to isolate cancellation patterns across 10 vehicle categories and turnaround times.",
-      "Analyzed 52,560 hourly environmental sensor readings from Delhi stations to quantify seasonal PM2.5/PM10 spikes and thermal inversion (r = -0.78).",
-      "Evaluated 30,000 retail footwear transactions across 6 global markets ($9.08M gross) to determine category velocity and discount elasticity boundaries."
+      "Worked with Python, Pandas, and NumPy to build the Ola/Uber Cancellation Analysis project, engineering a clean data pipeline and applying statistical analysis to identify ride-cancellation patterns and behavior trends.",
+      "Performed Delhi Weather & AQI Analysis, applying data cleaning, exploratory analysis, and visualization best practices to surface reliable, actionable environmental trends.",
+      "Conducted Sports Footwear Sales & Consumer Analysis, translating raw data into structured insights that informed business decisions, while managing time effectively to deliver all three projects within the internship window."
     ],
     keyHighlights: [
-      "Ola / Uber Analysis: Isolated vehicle turnaround (V_TAT) thresholds where customer cancellations surge",
-      "Delhi AQI Modeling: Correlated particulate accumulation with surface wind deceleration (<5 km/h)",
-      "Retail Analytics: Validated mathematical parity across $9.08M gross transactions and tested discount depths"
+      "Ola / Uber Analysis: Clean data pipeline on 103K records isolating turnaround thresholds where cancellations surge",
+      "Delhi AQI Analysis: Statistical correlation linking pollutant accumulation with surface wind stagnation (r = -0.78)",
+      "Retail Sales Analytics: Structured transactional evaluation across $9.08M gross volume informing pricing decisions"
     ],
     techStack: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Power BI", "EDA"]
+  }
+];
+
+export const resumeProjects: ResumeProject[] = [
+  {
+    title: "ICC Men's T20 World Cup 2024 -- Data Analysis & Interactive Dashboard",
+    techStack: "Python, Pandas, React, Recharts",
+    bullets: [
+      "Engineered a responsive, full-stack sports analytics dashboard end-to-end -- from raw CSV processing in Python/Pandas to an interactive React + Recharts front end -- demonstrating object-oriented and component-based software design.",
+      "Defined feature requirements independently (player profiles, match views, performance visualizations) and iteratively improved the UI based on usability testing and self-review."
+    ]
   },
   {
-    role: "Machine Learning Intern",
-    company: "Future Interns",
-    duration: "1 Month",
-    period: "Internship",
-    badge: "ML Engineering",
+    title: "Ola/Uber Cancellation Analysis",
+    techStack: "Python, Pandas, NumPy, Matplotlib, Seaborn",
     bullets: [
-      "Developed supervised machine learning pipelines for customer churn classification, sales forecasting baselines, and a conversational support prototype.",
-      "Engineered preprocessing routines: numerical standardization, categorical one-hot encoding, and feature importance analysis using Scikit-learn.",
-      "Benchmarked model evaluation metrics (precision, recall, F1 score, confusion matrices) across trained classification baselines."
-    ],
-    keyHighlights: [
-      "Customer Churn Model: Feature importance evaluation and risk classification using Scikit-learn",
-      "Sales Forecasting: Time-series trend analysis and rolling baseline projections",
-      "Customer Support Prototype: Semantic response retrieval with structured intent mapping"
-    ],
-    techStack: ["Python", "Scikit-learn", "Pandas", "NumPy", "Streamlit", "NLP"]
+      "Performed end-to-end EDA on ride-booking data, engineering analytical features and applying sound problem-solving to uncover the drivers of ride cancellations across customers, drivers, and vehicle types.",
+      "Built comparative visual analyses to communicate findings clearly and generate actionable recommendations for improving booking success rates."
+    ]
+  },
+  {
+    title: "Delhi Weather & AQI Analysis",
+    techStack: "Python, Pandas, NumPy, Data Visualization",
+    bullets: [
+      "Investigated temporal patterns and relationships between environmental variables using statistical analysis and data preprocessing techniques."
+    ]
+  },
+  {
+    title: "Sports Footwear Sales & Consumer Analysis",
+    techStack: "Python, Pandas, NumPy, EDA, Data Visualization",
+    bullets: [
+      "Cleaned, transformed, and aggregated sales and consumer data to evaluate performance trends and support data-driven business decisions."
+    ]
+  }
+];
+
+export const resumeSkills: ResumeSkillEntry[] = [
+  {
+    category: "Programming (OOP)",
+    details: "Python, C++ -- 1+ year of object-oriented programming experience"
+  },
+  {
+    category: "CS Fundamentals",
+    details: "Data Structures & Algorithms, Problem Solving, Software Design"
+  },
+  {
+    category: "Data Analysis",
+    details: "Pandas, NumPy, EDA, Data Cleaning, Preprocessing, Statistical Analysis, Feature Engineering"
+  },
+  {
+    category: "Machine Learning",
+    details: "Scikit-learn, TensorFlow/Keras, XGBoost, LightGBM, Classification, Regression, Forecasting"
+  },
+  {
+    category: "Dashboard & Web Dev",
+    details: "React, Flask, Next.js, Streamlit, Tailwind CSS"
+  },
+  {
+    category: "Data Visualization & DB",
+    details: "Matplotlib, Seaborn, Recharts, Power BI, SQL, SQLite"
+  },
+  {
+    category: "Tools & Practices",
+    details: "Git, GitHub, Jupyter Notebook, Agile/Iterative Development, Code Review & Feedback Incorporation"
+  },
+  {
+    category: "AI-Assisted Development",
+    details: "Claude Code, Antigravity IDE, Gemini CLI, OpenAI Codex, Prompt Engineering"
   }
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Data Analytics & Processing",
+    category: "Programming (OOP)",
+    description: "Object-oriented programming, software design, memory management, and algorithm implementation.",
+    iconName: "Code2",
+    skills: [
+      { name: "Python", level: "Core", highlight: true, evidence: "1+ year hands-on OOP experience across full-stack apps, ML pipelines & analytics" },
+      { name: "C++", level: "Core", highlight: true, evidence: "1+ year coursework and practice in OOP, memory concepts, DSA and problem solving" },
+      { name: "Object-Oriented Design", level: "Core", highlight: true, evidence: "Component-based architecture, modular OOP software pipelines & patterns" }
+    ]
+  },
+  {
+    category: "CS Fundamentals",
+    description: "Core computer science principles, algorithmic problem solving, and software engineering discipline.",
+    iconName: "Cpu",
+    skills: [
+      { name: "Data Structures & Algorithms", level: "Core", highlight: true, evidence: "Solid grounding in trees, graphs, sorting, searching, hash tables & complexity" },
+      { name: "Problem Solving", level: "Core", highlight: true, evidence: "Systematic engineering approach to requirements, edge cases & algorithmic efficiency" },
+      { name: "Software Design", level: "Core", highlight: true, evidence: "Modular component hierarchies, separation of concerns & clean code practices" }
+    ]
+  },
+  {
+    category: "Data Analysis",
     description: "End-to-end data manipulation, validation, hypothesis formulation, and exploratory analysis.",
     iconName: "Binary",
     skills: [
-      { name: "Python", level: "Core", highlight: true, evidence: "Primary language across all 4 analytics projects and ML workflows" },
       { name: "Pandas", level: "Core", highlight: true, evidence: "Data cleaning, aggregation, grouping & filtering on 100k+ records" },
       { name: "NumPy", level: "Core", highlight: true, evidence: "Vectorized array calculations, numerical transformations & stats" },
-      { name: "SQL", level: "Core", highlight: true, evidence: "Relational queries, multi-table joins, aggregations & filtering" },
       { name: "Exploratory Data Analysis (EDA)", level: "Core", highlight: true, evidence: "Distribution diagnostics, correlation matrices & outlier auditing" },
       { name: "Data Cleaning & Preprocessing", level: "Core", highlight: true, evidence: "Handling nulls, datetime parsing & categorical standardization" },
-      { name: "Feature Engineering", level: "Project Tested", evidence: "Temporal derivations, ordinal encoding & turnaround derivations" },
-      { name: "Statistical Analysis", level: "Project Tested", evidence: "Descriptive statistics, variance, Pearson correlation & hypothesis checks" }
+      { name: "Statistical Analysis", level: "Project Tested", evidence: "Descriptive statistics, variance, Pearson correlation & hypothesis checks" },
+      { name: "Feature Engineering", level: "Project Tested", evidence: "Temporal derivations, ordinal encoding & turnaround derivations" }
     ]
   },
   {
-    category: "Business Intelligence & Visualization",
-    description: "Transforming complex datasets into clear, informative charts, reports, and interactive dashboards.",
-    iconName: "BarChart3",
-    skills: [
-      { name: "Power BI", level: "Project Tested", highlight: true, evidence: "Built 3 multi-page interactive dashboards with DAX measures" },
-      { name: "Matplotlib", level: "Core", evidence: "Histograms, scatter visualizers & distribution plots in notebooks" },
-      { name: "Seaborn", level: "Core", highlight: true, evidence: "Statistical distributions, correlation heatmaps & KDE plots" },
-      { name: "Recharts", level: "Project Tested", highlight: true, evidence: "Engineered web-based radar & bar visualizers for T20 cricket app" },
-      { name: "Interactive Dashboards", level: "Project Tested", evidence: "Connected client-side visual controls for real-time data slicing" }
-    ]
-  },
-  {
-    category: "Applied Machine Learning",
+    category: "Machine Learning",
     description: "Supervised classification, regression models, time-series baselines, and evaluation metrics.",
     iconName: "BrainCircuit",
     skills: [
-      { name: "Scikit-learn", level: "Working Knowledge", highlight: true, evidence: "Model pipelines, transformers & estimators at Future Interns" },
-      { name: "Classification Modeling", level: "Working Knowledge", highlight: true, evidence: "Customer churn risk classification using logistic & tree models" },
-      { name: "Model Evaluation", level: "Working Knowledge", evidence: "Benchmarked precision, recall, F1 scores & confusion matrices" },
-      { name: "Time-Series Baselines", level: "Working Knowledge", evidence: "Moving averages, rolling windows & seasonal trend tracking" }
+      { name: "Scikit-learn", level: "Core", highlight: true, evidence: "Model pipelines, transformers & estimators at Future Interns" },
+      { name: "Classification & Regression", level: "Core", highlight: true, evidence: "Customer churn risk classification and predictive baseline models" },
+      { name: "Forecasting", level: "Project Tested", evidence: "Time-series trend analysis, sales forecasting & moving window projections" },
+      { name: "XGBoost & LightGBM", level: "Project Tested", highlight: true, evidence: "Gradient boosted decision trees for tabular classification benchmarks" },
+      { name: "TensorFlow / Keras", level: "Working Knowledge", evidence: "Neural network architectures and deep learning fundamentals" }
     ]
   },
   {
-    category: "Programming & Web Engineering",
-    description: "Computer science foundations, modern web frontends, component architecture, and version control.",
-    iconName: "Code2",
-    skills: [
-      { name: "TypeScript / JavaScript", level: "Project Tested", highlight: true, evidence: "Built this responsive portfolio & interactive EDA lab" },
-      { name: "React & Next.js", level: "Project Tested", highlight: true, evidence: "App router, SSR, static generation & custom component design" },
-      { name: "Tailwind CSS", level: "Project Tested", evidence: "Utility design tokens, dark/light themes & high-contrast layouts" },
-      { name: "Git & GitHub", level: "Core", highlight: true, evidence: "Branch management, repository documentation & version history" },
-      { name: "C++ / Java", level: "Familiar", evidence: "Academic coursework covering core data structures & OOP" }
-    ]
-  },
-  {
-    category: "Database Systems",
-    description: "Relational data modeling, schema understanding, and structured querying.",
+    category: "Dashboard & Web Dev",
+    description: "Full-stack frontend engineering, reactive dashboards, component-based architectures, and modern web frameworks.",
     iconName: "Layout",
     skills: [
-      { name: "MySQL", level: "Core", highlight: true, evidence: "Relational queries, primary/foreign keys & table indexing" },
-      { name: "PostgreSQL", level: "Working Knowledge", evidence: "Structured analytical queries, aggregations & filtering" },
-      { name: "SQLite", level: "Project Tested", evidence: "Local analytical storage & test database setups" }
+      { name: "React", level: "Core", highlight: true, evidence: "Engineered responsive full-stack sports analytics dashboard and component UI" },
+      { name: "Next.js", level: "Core", highlight: true, evidence: "App Router, SSR, TypeScript, and modern component design" },
+      { name: "Tailwind CSS", level: "Core", highlight: true, evidence: "Responsive layouts, utility tokens, dark theme & high-contrast UI" },
+      { name: "Flask", level: "Project Tested", evidence: "Lightweight Python REST API microservices for backend integration" },
+      { name: "Streamlit", level: "Project Tested", evidence: "Interactive web applications for ML model inference and data exploration" }
+    ]
+  },
+  {
+    category: "Data Visualization & DB",
+    description: "Transforming complex datasets into clear, informative charts, reports, and relational databases.",
+    iconName: "BarChart3",
+    skills: [
+      { name: "SQL", level: "Core", highlight: true, evidence: "Relational queries, multi-table joins, aggregations & filtering" },
+      { name: "SQLite", level: "Core", evidence: "Embedded analytical storage, schema modeling & query optimization" },
+      { name: "Power BI", level: "Project Tested", highlight: true, evidence: "Built 3 multi-page interactive dashboards with DAX measures" },
+      { name: "Recharts", level: "Project Tested", highlight: true, evidence: "Engineered web-based radar & bar visualizers for T20 cricket app" },
+      { name: "Matplotlib & Seaborn", level: "Core", evidence: "Distribution diagnostics, correlation heatmaps & KDE plots" }
+    ]
+  },
+  {
+    category: "Tools & Practices",
+    description: "Engineering workflows, iterative development cycles, version control, and code quality.",
+    iconName: "Sparkles",
+    skills: [
+      { name: "Git & GitHub", level: "Core", highlight: true, evidence: "Branch management, repository documentation & version history" },
+      { name: "Jupyter Notebook", level: "Core", evidence: "Reproducible research, EDA workflows & documentation" },
+      { name: "Agile / Iterative Development", level: "Core", evidence: "Requirements gathering, user feedback loops & incremental delivery" },
+      { name: "Code Review & Feedback", level: "Core", evidence: "Following software best practices to improve reliability and usability" }
+    ]
+  },
+  {
+    category: "AI-Assisted Development",
+    description: "Leveraging cutting-edge AI development environments and prompt engineering to accelerate software delivery.",
+    iconName: "Bot",
+    skills: [
+      { name: "Claude Code", level: "Core", highlight: true, evidence: "Advanced agentic terminal workflow and autonomous coding" },
+      { name: "Antigravity IDE", level: "Core", highlight: true, evidence: "Modern AI-assisted pair programming and workspace orchestration" },
+      { name: "Gemini CLI", level: "Core", highlight: true, evidence: "Command-line multimodal intelligence and script generation" },
+      { name: "OpenAI Codex", level: "Core", evidence: "Code synthesis, refactoring, and automated test generation" },
+      { name: "Prompt Engineering", level: "Core", highlight: true, evidence: "Structured context design, system prompting & deterministic outputs" }
     ]
   }
 ];
 
 export const currentlyExploring: ExploringTopic[] = [
   {
-    title: "Advanced SQL & Query Optimization",
-    description: "Complex analytical window functions, recursive CTEs, query plan profiling, and index tuning.",
+    title: "System Design & Distributed Architectures",
+    description: "Designing scalable backend services, caching layers, message queues, and high-concurrency patterns.",
     status: "Active Practice"
   },
   {
-    title: "Data Engineering Pipelines",
-    description: "ETL pipeline orchestration, schema evolution, and automated ingestion workflows for analytical stores.",
-    status: "Practical Exploration"
+    title: "Advanced Data Structures & Algorithms in C++",
+    description: "Graph algorithms, dynamic programming, tree traversals, and algorithmic optimization.",
+    status: "Daily Problem Solving"
   },
   {
-    title: "PostgreSQL & Database Internals",
-    description: "Deep dive into ACID transactions, query planner mechanisms, and table partitioning strategies.",
-    status: "Coursework & Practice"
+    title: "Full-Stack Next.js & REST / Microservices",
+    description: "Building production-grade web applications with server components, database integrations, and microservices.",
+    status: "Project Building"
   },
   {
-    title: "FastAPI Analytical Microservices",
-    description: "Deploying Python data transformation routines and inference pipelines as lightweight REST APIs.",
+    title: "MLOps & Autonomous Agentic Pipelines",
+    description: "Continuous model evaluation, containerization, and LLM-assisted autonomous workflow development.",
     status: "Prototyping"
   }
 ];
 
 export const verifiedAchievements: Achievement[] = [
   {
-    name: "Elected Membership Chair",
+    name: "SVCE ACM Membership Chair",
     organization: "SVCE ACM Student Chapter",
     year: "2026–2027",
-    context: "Promoted from Design Executive (2025–2026); coordinate technical student onboarding and hands-on coding workshops.",
+    context: "Promoted from Design Executive (2025-26) for contributions to member engagement and event coordination.",
     type: "Leadership"
   },
   {
     name: "Academic Standing — 8.1 CGPA",
-    organization: "Sri Venkateswara College of Engineering (SVCE)",
-    year: "2023–Present",
-    context: "B.E. Computer Science & Engineering; strong performance in Data Structures, DBMS, and Probability & Statistics.",
+    organization: "Sri Venkateswara College of Engineering",
+    year: "2023–2028",
+    context: "B.E. Computer Science Engineering, Semester 5. Solid grounding in OOP (Python, C++), DSA, and software design.",
     type: "Academic"
   },
   {
-    name: "3Skill Data Analytics Internship Deliverables",
-    organization: "3Skill",
+    name: "Future Interns ML Internship",
+    organization: "Future Interns",
     year: "2024",
-    context: "Completed 3 end-to-end analytical project deliverables across urban mobility, air quality, and retail footwear.",
+    context: "Designed and built three end-to-end software pipelines (churn prediction web app, sales forecasting, semantic chat-bot).",
     type: "Internship"
   },
   {
-    name: "Future Interns Machine Learning Internship",
-    organization: "Future Interns",
+    name: "3Skill Data Analytics Internship",
+    organization: "3Skill",
     year: "2024",
-    context: "Constructed supervised ML classification pipelines with documented precision, recall, and evaluation metrics.",
+    context: "Delivered 3 end-to-end analytical pipelines (Ola/Uber cancellation analysis, Delhi AQI, sports footwear retail).",
     type: "Internship"
   }
 ];
 
 export const education = {
-  degree: "Bachelor of Engineering — Computer Science Engineering",
-  college: "Sri Venkateswara College of Engineering (SVCE)",
+  degree: "Bachelor of Engineering -- Computer Science Engineering",
+  college: "Sri Venkateswara College of Engineering | Chennai",
   location: "Chennai, India",
-  graduation: "Expected Graduation: 2028",
+  graduation: "Graduation: 2028",
   cgpa: "8.1 / 10",
-  currentStatus: "Current Semester: 5 (Third Year)",
+  currentStatus: "Current Semester: 5 (at least 3 semesters remaining)",
   coursework: [
     "Data Structures & Algorithms",
-    "Database Management Systems (DBMS)",
-    "Object-Oriented Programming (C++ / Python)",
-    "Probability & Statistics",
+    "Object-Oriented Programming (Python, C++)",
+    "Software Design & Problem Solving",
+    "Database Management Systems (DBMS / SQL)",
     "Operating Systems",
     "Computer Networks",
-    "Data Science Fundamentals"
+    "Probability & Statistics",
+    "Machine Learning & Data Science"
   ]
 };
 
 export const leadership: LeadershipRole = {
   title: "Membership Chair",
   organization: "SVCE ACM Student Chapter",
-  period: "2026–2027",
-  previousRole: "Previously Design Executive (2025–2026)",
-  description: "Elected as Membership Chair following contributions as Design Executive. Lead member onboarding, student engagement initiatives, and coordinate technical events.",
+  period: "2026-27",
+  previousRole: "Promoted from Design Executive (2025-26)",
+  description: "Membership Chair for SVCE ACM Student Chapter (2026-27), promoted from Design Executive (2025-26) for contributions to member engagement and event coordination -- reflecting time management and teamwork in a cooperative environment.",
   achievements: [
-    "Elected to Membership Chair after successful tenure as Design Executive.",
-    "Coordinated technical student onboarding and hands-on coding workshops.",
-    "Led visual assets and communications for chapter hackathons, symposiums, and guest lectures."
+    "Promoted from Design Executive (2025-26) to Membership Chair (2026-27).",
+    "Recognized for contributions to member engagement and technical event coordination.",
+    "Demonstrated exceptional time management, leadership, and teamwork in a cooperative environment."
   ]
 };

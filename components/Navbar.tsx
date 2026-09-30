@@ -9,11 +9,9 @@ import {
   FileText,
   Menu,
   X,
-  Activity,
-  Terminal,
-  Mail,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+import { personalInfo } from "@/data/resumeData";
 
 interface NavbarProps {
   onOpenResume?: () => void;
@@ -63,7 +61,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             </span>
             <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>DATA ANALYST &amp; ANALYTICS ENGINEER</span>
+              <span>SOFTWARE ENGINEERING INTERN CANDIDATE</span>
             </div>
           </div>
         </Link>
@@ -85,7 +83,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
         <div className="hidden sm:flex items-center gap-2.5">
           {/* GitHub */}
           <a
-            href="https://github.com/aneeshkashyap"
+            href={personalInfo.github}
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub Profile"
@@ -96,7 +94,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
 
           {/* LinkedIn */}
           <a
-            href="https://www.linkedin.com/in/aneesh-kashyap-k-s-146a7b371/"
+            href={personalInfo.linkedin}
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn Profile"
@@ -140,20 +138,20 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
               <FileText size={15} />
             </button>
           )}
+
           <button
+            aria-label="Open Menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            suppressHydrationWarning
             className="p-2 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800"
-            aria-label="Toggle Mobile Menu"
           >
             {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Slide-down Menu */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="sm:hidden border-b border-zinc-800 bg-zinc-950/95 backdrop-blur-2xl px-6 py-4 space-y-3 animate-in fade-in slide-in-from-top-2">
+        <div className="sm:hidden px-4 pt-3 pb-6 bg-zinc-950/95 border-b border-zinc-800 space-y-4">
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Link
@@ -170,7 +168,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           <div className="flex items-center justify-between pt-2">
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/aneeshkashyap"
+                href={personalInfo.github}
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-lg bg-zinc-900 text-zinc-400"
@@ -178,7 +176,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                 <GithubIcon size={16} />
               </a>
               <a
-                href="https://www.linkedin.com/in/aneesh-kashyap-k-s-146a7b371/"
+                href={personalInfo.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-lg bg-zinc-900 text-zinc-400"

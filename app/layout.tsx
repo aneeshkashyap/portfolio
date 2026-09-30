@@ -14,40 +14,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aneesh Kashyap | Data Analyst & Analytics Engineer",
+  title: "Aneesh Kashyap | Software Engineering Intern Candidate",
   description:
-    "Computer Science Engineering student focused on data analytics, analytics engineering, Python, SQL, machine learning and interactive dashboards.",
+    "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures, algorithms, ML pipelines, and full-stack web dashboards.",
   keywords: [
     "Aneesh Kashyap",
-    "Data Analyst",
-    "Analytics Engineer",
-    "Data Engineering",
+    "Software Engineering Intern",
     "Computer Science Engineering",
     "SVCE Chennai",
     "Python",
+    "C++",
+    "Object-Oriented Programming",
+    "Data Structures and Algorithms",
+    "Machine Learning",
+    "Scikit-learn",
+    "React",
+    "Next.js",
     "SQL",
     "Pandas",
     "NumPy",
-    "Exploratory Data Analysis",
-    "Machine Learning",
-    "Power BI",
-    "Interactive Dashboards",
+    "Data Analytics",
     "ACM Student Chapter",
   ],
   authors: [{ name: "Aneesh Kashyap K S" }],
   openGraph: {
-    title: "Aneesh Kashyap | Data Analyst & Analytics Engineer",
+    title: "Aneesh Kashyap | Software Engineering Intern Candidate",
     description:
-      "Computer Science Engineering student focused on data analytics, analytics engineering, Python, SQL, machine learning and interactive dashboards.",
+      "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures, algorithms, ML pipelines, and full-stack web dashboards.",
     url: "https://portfolio-five-sable-31.vercel.app/",
     siteName: "Aneesh Kashyap Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aneesh Kashyap | Data Analyst & Analytics Engineer",
+    title: "Aneesh Kashyap | Software Engineering Intern Candidate",
     description:
-      "Computer Science Engineering student focused on data analytics, analytics engineering, Python, SQL, machine learning and interactive dashboards.",
+      "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures, algorithms, ML pipelines, and full-stack web dashboards.",
   },
 };
 

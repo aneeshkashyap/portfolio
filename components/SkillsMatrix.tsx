@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   Compass,
   ArrowRight,
+  Bot,
 } from "lucide-react";
 
 export default function SkillsMatrix() {
@@ -32,6 +33,8 @@ export default function SkillsMatrix() {
         return <Layout size={18} className="text-blue-400" />;
       case "Sparkles":
         return <Sparkles size={18} className="text-pink-400" />;
+      case "Bot":
+        return <Bot size={18} className="text-cyan-400" />;
       default:
         return <Cpu size={18} className="text-cyan-400" />;
     }
@@ -85,7 +88,7 @@ export default function SkillsMatrix() {
       </div>
 
       {/* Category Tabs */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 mb-6">
         {skillCategories.map((cat, idx) => {
           const isSelected = idx === selectedCategoryIdx;
           return (

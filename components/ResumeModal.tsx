@@ -8,13 +8,16 @@ import {
   Copy,
   Check,
   Download,
-  Mail,
-  Phone,
-  MapPin,
   ExternalLink,
 } from "lucide-react";
-import { personalInfo, internships, education, leadership, skillCategories } from "@/data/resumeData";
-import projects from "@/data/projects";
+import {
+  personalInfo,
+  internships,
+  education,
+  leadership,
+  resumeProjects,
+  resumeSkills,
+} from "@/data/resumeData";
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -77,7 +80,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 Official Curriculum Vitae
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">
-                Verified Details
+                Verified ATS Format
               </span>
             </div>
 
@@ -120,22 +123,22 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           {/* Printable Resume Document */}
           <div className="p-6 sm:p-10 overflow-y-auto space-y-6 text-zinc-200 print:text-black print:p-0">
             {/* Resume Header */}
-            <div className="text-center border-b border-zinc-800 pb-6 print:border-black/20">
-              <h1 className="text-3xl font-bold tracking-wider text-white print:text-black font-sans">
+            <div className="text-center border-b border-zinc-800 pb-5 print:border-black/20">
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-wider text-white print:text-black font-sans">
                 {personalInfo.name}
               </h1>
-              <p className="text-xs font-mono tracking-widest text-cyan-400 print:text-black mt-1 uppercase font-semibold">
-                {personalInfo.role} | {personalInfo.subRole}
+              <p className="text-xs sm:text-sm font-mono tracking-wide text-cyan-400 print:text-black mt-1 font-semibold">
+                Software Engineering Intern Candidate | Computer Science Student
               </p>
 
               {/* Contact meta */}
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 mt-3 text-xs text-zinc-400 print:text-black font-mono">
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-2.5 text-xs text-zinc-400 print:text-black font-mono">
                 <span>{personalInfo.email}</span>
-                <span>•</span>
-                <span>{personalInfo.phone}</span>
-                <span>•</span>
-                <span>{personalInfo.location}</span>
-                <span>•</span>
+                <span>|</span>
+                <span>7397303538</span>
+                <span>|</span>
+                <span>Chennai</span>
+                <span>|</span>
                 <a
                   href={personalInfo.github}
                   target="_blank"
@@ -144,14 +147,14 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 >
                   github.com/aneeshkashyap
                 </a>
-                <span>•</span>
+                <span>|</span>
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-cyan-300 underline"
                 >
-                  linkedin.com/in/aneesh-kashyap-k-s
+                  linkedin.com/in/aneeshkashyap-k-s
                 </a>
               </div>
             </div>
@@ -166,21 +169,26 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </p>
             </div>
 
-            {/* Internships */}
+            {/* Internship Experience */}
             <div className="space-y-4">
               <h2 className="text-xs font-mono uppercase tracking-wider text-cyan-400 print:text-black font-bold border-b border-zinc-800 pb-1">
                 INTERNSHIP EXPERIENCE
               </h2>
 
               {internships.map((job) => (
-                <div key={job.company} className="space-y-1 text-xs sm:text-sm">
+                <div key={job.company} className="space-y-1.5 text-xs sm:text-sm">
                   <div className="flex justify-between font-bold text-white print:text-black">
-                    <span>
-                      {job.role} — <span className="text-cyan-400 print:text-black">{job.company}</span>
+                    <span className="font-semibold text-sm">
+                      {job.role}
                     </span>
-                    <span className="font-mono text-xs text-zinc-400 print:text-black">{job.duration}</span>
+                    <span className="font-mono text-xs text-zinc-400 print:text-black italic">
+                      {job.duration}
+                    </span>
                   </div>
-                  <ul className="list-disc list-inside space-y-1 text-zinc-300 print:text-black pl-1 text-xs">
+                  <div className="text-xs text-cyan-400 print:text-black font-medium italic">
+                    {job.company}
+                  </div>
+                  <ul className="list-disc list-outside space-y-1 text-zinc-300 print:text-black pl-4 text-xs leading-relaxed">
                     {job.bullets.map((bullet, idx) => (
                       <li key={idx}>{bullet}</li>
                     ))}
@@ -195,22 +203,19 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 PROJECTS
               </h2>
 
-              {projects.slice(0, 4).map((proj, idx) => (
-                <div key={proj.id} className="space-y-1 text-xs sm:text-sm">
-                  <div className="flex justify-between font-bold text-white print:text-black">
-                    <span>
-                      {idx + 1}) {proj.title}
+              {resumeProjects.map((proj) => (
+                <div key={proj.title} className="space-y-1 text-xs sm:text-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between font-bold text-white print:text-black">
+                    <span className="text-xs sm:text-sm font-semibold">
+                      {proj.title}
                     </span>
-                    <span className="font-mono text-xs text-zinc-400 print:text-black">
-                      {proj.tags.slice(0, 3).join(", ")}
+                    <span className="font-mono text-xs text-zinc-400 print:text-black font-normal">
+                      | {proj.techStack}
                     </span>
                   </div>
-                  <p className="text-xs text-zinc-300 print:text-black leading-relaxed">
-                    {proj.description}
-                  </p>
-                  <ul className="list-disc list-inside space-y-0.5 text-zinc-400 print:text-black pl-1 text-xs">
-                    {proj.caseStudy.edaMethodology.slice(0, 2).map((m, mIdx) => (
-                      <li key={mIdx}>{m}</li>
+                  <ul className="list-disc list-outside space-y-1 text-zinc-300 print:text-black pl-4 text-xs leading-relaxed">
+                    {proj.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx}>{bullet}</li>
                     ))}
                   </ul>
                 </div>
@@ -218,18 +223,18 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </div>
 
             {/* Skills */}
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               <h2 className="text-xs font-mono uppercase tracking-wider text-cyan-400 print:text-black font-bold border-b border-zinc-800 pb-1">
-                TECHNICAL SKILLS
+                SKILLS
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                {skillCategories.map((cat) => (
-                  <div key={cat.category} className="space-y-0.5">
-                    <strong className="text-white print:text-black font-mono text-[11px] block">
-                      {cat.category}:
+              <div className="space-y-1.5 text-xs">
+                {resumeSkills.map((item) => (
+                  <div key={item.category} className="leading-relaxed">
+                    <strong className="text-white print:text-black font-mono font-bold">
+                      {item.category}:{" "}
                     </strong>
-                    <span className="text-zinc-400 print:text-black">
-                      {cat.skills.map((s) => s.name).join(", ")}
+                    <span className="text-zinc-300 print:text-black">
+                      {item.details}
                     </span>
                   </div>
                 ))}
@@ -237,7 +242,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </div>
 
             {/* Education */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <h2 className="text-xs font-mono uppercase tracking-wider text-cyan-400 print:text-black font-bold border-b border-zinc-800 pb-1">
                 EDUCATION
               </h2>
@@ -245,28 +250,27 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <span>{education.degree}</span>
                 <span className="font-mono text-xs text-zinc-400 print:text-black">{education.graduation}</span>
               </div>
+              <p className="text-xs text-zinc-300 print:text-black font-medium">
+                {education.college}
+              </p>
               <p className="text-xs text-zinc-400 print:text-black font-mono">
-                {education.college} • CGPA: {education.cgpa} • {education.currentStatus}
+                CGPA: {education.cgpa} | {education.currentStatus}
               </p>
             </div>
 
-            {/* Leadership */}
-            <div className="space-y-2">
+            {/* Leadership & Responsibilities */}
+            <div className="space-y-1.5">
               <h2 className="text-xs font-mono uppercase tracking-wider text-cyan-400 print:text-black font-bold border-b border-zinc-800 pb-1">
                 LEADERSHIP & RESPONSIBILITIES
               </h2>
-              <div className="flex justify-between text-xs sm:text-sm font-bold text-white print:text-black">
-                <span>
-                  {leadership.title} — {leadership.organization}
-                </span>
-                <span className="font-mono text-xs text-zinc-400 print:text-black">{leadership.period}</span>
-              </div>
-              <p className="text-xs text-zinc-400 print:text-black italic">
-                {leadership.previousRole}
-              </p>
-              <p className="text-xs text-zinc-300 print:text-black leading-relaxed">
-                {leadership.description}
-              </p>
+              <ul className="list-disc list-outside space-y-1 text-zinc-300 print:text-black pl-4 text-xs leading-relaxed">
+                <li>
+                  <strong className="text-white print:text-black font-semibold">
+                    {leadership.title} -- {leadership.organization} ({leadership.period})
+                  </strong>
+                  , {leadership.previousRole} for contributions to member engagement and event coordination -- reflecting time management and teamwork in a cooperative environment.
+                </li>
+              </ul>
             </div>
           </div>
         </motion.div>
