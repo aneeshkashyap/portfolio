@@ -11,15 +11,17 @@ import {
   MessageSquare,
   Sparkles,
   FileText,
+  ShieldCheck,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { personalInfo } from "@/data/resumeData";
 
 interface ContactSectionProps {
   onOpenResume?: () => void;
+  onOpenAtsScore?: () => void;
 }
 
-export default function ContactSection({ onOpenResume }: ContactSectionProps) {
+export default function ContactSection({ onOpenResume, onOpenAtsScore }: ContactSectionProps) {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [formName, setFormName] = useState("");
@@ -161,13 +163,24 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
                 <span>LinkedIn</span>
               </a>
 
+              {onOpenAtsScore && (
+                <button
+                  onClick={onOpenAtsScore}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 hover:text-white border border-emerald-500/30 font-mono text-xs font-semibold transition-all shadow-sm"
+                  title="Inspect ATS Diagnostic Score (94/100)"
+                >
+                  <ShieldCheck size={14} className="text-emerald-400" />
+                  <span>ATS Score: <strong>94%</strong></span>
+                </button>
+              )}
+
               {onOpenResume ? (
                 <button
                   onClick={onOpenResume}
                   className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 hover:text-white border border-cyan-500/30 font-mono text-xs font-semibold transition-all"
                 >
                   <FileText size={14} />
-                  <span>Resume (ATS)</span>
+                  <span>Resume (CV)</span>
                 </button>
               ) : (
                 <a

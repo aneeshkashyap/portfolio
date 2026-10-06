@@ -16,8 +16,18 @@ import ResumeModal from "@/components/ResumeModal";
 
 export default function PortfolioClient() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [resumeTab, setResumeTab] = useState<"resume" | "ats-score">("resume");
 
-  const handleOpenResume = () => setIsResumeOpen(true);
+  const handleOpenResume = () => {
+    setResumeTab("resume");
+    setIsResumeOpen(true);
+  };
+
+  const handleOpenAtsScore = () => {
+    setResumeTab("ats-score");
+    setIsResumeOpen(true);
+  };
+
   const handleCloseResume = () => setIsResumeOpen(false);
 
   const handleScrollToPlayground = () => {
@@ -35,8 +45,11 @@ export default function PortfolioClient() {
       {/* Subdued Technical Data Constellation Canvas */}
       <DataCanvas />
 
-      {/* Navigation */}
-      <Navbar onOpenResume={handleOpenResume} />
+      {/* Navigation with direct ATS Score and Resume triggers */}
+      <Navbar
+        onOpenResume={handleOpenResume}
+        onOpenAtsScore={handleOpenAtsScore}
+      />
 
       {/* Main Content Sections: Narrative Flow */}
       <main className="flex-1 w-full relative z-10">
@@ -44,6 +57,7 @@ export default function PortfolioClient() {
         <Hero
           onOpenResume={handleOpenResume}
           onOpenContact={handleScrollToContact}
+          onOpenAtsScore={handleOpenAtsScore}
         />
 
         {/* 1.5 What I Build (Concise Capability Overview) */}
@@ -53,6 +67,7 @@ export default function PortfolioClient() {
         <ProjectsGrid
           onOpenPlayground={handleScrollToPlayground}
           onOpenResume={handleOpenResume}
+          onOpenAtsScore={handleOpenAtsScore}
         />
 
         {/* 3. Interactive EDA Lab (Hands-on Exploration) */}
@@ -68,14 +83,21 @@ export default function PortfolioClient() {
         <ExperienceTimeline />
 
         {/* 6. Direct Contact & Professional Inquiry */}
-        <ContactSection onOpenResume={handleOpenResume} />
+        <ContactSection
+          onOpenResume={handleOpenResume}
+          onOpenAtsScore={handleOpenAtsScore}
+        />
       </main>
 
       {/* Footer */}
       <Footer />
 
-      {/* Printable / ATS-Friendly Resume Modal */}
-      <ResumeModal isOpen={isResumeOpen} onClose={handleCloseResume} />
+      {/* Printable / ATS-Friendly Resume & Diagnostic Score Modal */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={handleCloseResume}
+        initialTab={resumeTab}
+      />
     </div>
   );
 }

@@ -10,15 +10,17 @@ import {
   BarChart3,
   Code2,
   CheckCircle2,
+  ShieldCheck,
 } from "lucide-react";
 import { personalInfo } from "@/data/resumeData";
 
 interface HeroProps {
   onOpenResume?: () => void;
   onOpenContact?: () => void;
+  onOpenAtsScore?: () => void;
 }
 
-export default function Hero({ onOpenResume, onOpenContact }: HeroProps) {
+export default function Hero({ onOpenResume, onOpenContact, onOpenAtsScore }: HeroProps) {
   // Verified software engineering & pipeline execution logs
   const terminalLines = [
     { text: "$ python -m pipelines.run_lifecycle --env production", color: "text-cyan-400" },
@@ -128,13 +130,23 @@ export default function Hero({ onOpenResume, onOpenContact }: HeroProps) {
               Explore Data Lab
             </a>
 
+            {onOpenAtsScore && (
+              <button
+                onClick={onOpenAtsScore}
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono text-xs sm:text-sm font-semibold transition-all shadow-sm"
+              >
+                <ShieldCheck size={15} className="text-emerald-400" />
+                <span>ATS Score: <strong>94/100</strong></span>
+              </button>
+            )}
+
             {onOpenResume && (
               <button
                 onClick={onOpenResume}
                 className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 font-mono text-xs sm:text-sm transition-all"
               >
-                <FileText size={15} className="text-emerald-400" />
-                Resume (ATS)
+                <FileText size={15} className="text-cyan-400" />
+                <span>Resume (CV)</span>
               </button>
             )}
           </div>

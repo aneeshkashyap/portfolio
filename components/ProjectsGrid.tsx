@@ -4,16 +4,17 @@ import React, { useState, useMemo } from "react";
 import projects, { Project } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
-import { Search, Database, FileText } from "lucide-react";
+import { Search, Database, FileText, ShieldCheck } from "lucide-react";
 import { LinkedinIcon } from "@/components/Icons";
 import { personalInfo } from "@/data/resumeData";
 
 interface ProjectsGridProps {
   onOpenPlayground?: () => void;
   onOpenResume?: () => void;
+  onOpenAtsScore?: () => void;
 }
 
-export default function ProjectsGrid({ onOpenPlayground, onOpenResume }: ProjectsGridProps) {
+export default function ProjectsGrid({ onOpenPlayground, onOpenResume, onOpenAtsScore }: ProjectsGridProps) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -110,6 +111,15 @@ export default function ProjectsGrid({ onOpenPlayground, onOpenResume }: Project
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3 shrink-0">
+          {onOpenAtsScore && (
+            <button
+              onClick={onOpenAtsScore}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/35 text-xs font-mono font-semibold transition-all shadow-sm"
+            >
+              <ShieldCheck size={13} className="text-emerald-400" />
+              <span>ATS Score (94%)</span>
+            </button>
+          )}
           <button
             onClick={onOpenResume}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/35 text-xs font-mono font-semibold transition-all shadow-sm"

@@ -9,15 +9,17 @@ import {
   FileText,
   Menu,
   X,
+  ShieldCheck,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { personalInfo } from "@/data/resumeData";
 
 interface NavbarProps {
   onOpenResume?: () => void;
+  onOpenAtsScore?: () => void;
 }
 
-export default function Navbar({ onOpenResume }: NavbarProps) {
+export default function Navbar({ onOpenResume, onOpenAtsScore }: NavbarProps) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -104,6 +106,19 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             <LinkedinIcon size={15} />
           </a>
 
+          {/* ATS Score Trigger */}
+          {onOpenAtsScore && (
+            <button
+              onClick={onOpenAtsScore}
+              suppressHydrationWarning
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/35 text-xs font-mono font-semibold transition-all shadow-sm"
+              title="Inspect Candidate ATS Audit (94/100)"
+            >
+              <ShieldCheck size={13} className="text-emerald-400" />
+              <span>ATS: <strong>94%</strong></span>
+            </button>
+          )}
+
           {/* Resume Trigger */}
           {onOpenResume && (
             <button
@@ -129,6 +144,18 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
 
         {/* Mobile Hamburger Menu Toggle */}
         <div className="flex sm:hidden items-center gap-2">
+          {onOpenAtsScore && (
+            <button
+              onClick={onOpenAtsScore}
+              suppressHydrationWarning
+              className="px-2 py-1 rounded-xl bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-[11px] font-mono font-semibold flex items-center gap-1"
+              aria-label="View ATS Score"
+            >
+              <ShieldCheck size={12} className="text-emerald-400" />
+              <span>94%</span>
+            </button>
+          )}
+
           {onOpenResume && (
             <button
               onClick={onOpenResume}
@@ -164,6 +191,37 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                 {link.label}
               </Link>
             ))}
+
+            {onOpenAtsScore && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenAtsScore();
+                }}
+                className="w-full py-2.5 px-3 rounded-xl bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-semibold flex items-center justify-between mt-2"
+              >
+                <span className="flex items-center gap-2">
+                  <ShieldCheck size={14} className="text-emerald-400" />
+                  ATS Diagnostic Audit
+                </span>
+                <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-200">
+                  94/100
+                </span>
+              </button>
+            )}
+
+            {onOpenResume && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenResume();
+                }}
+                className="w-full py-2.5 px-3 rounded-xl bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-xs font-mono font-semibold flex items-center gap-2 mt-1"
+              >
+                <FileText size={14} />
+                <span>View Full Resume</span>
+              </button>
+            )}
           </div>
 
           <div className="flex items-center justify-between pt-2">
