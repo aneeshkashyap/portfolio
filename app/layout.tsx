@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
     description:
       "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards in Power BI and React.",
-    url: "https://portfolio-five-sable-31.vercel.app/",
+    url: "https://ksaneeshkashyapportfolio.vercel.app/",
     siteName: "Aneesh Kashyap Portfolio",
     type: "website",
   },
