@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
     description: personalInfo.bio,
-    url: "https://ksaneeshkashyapportfolio.vercel.app/",
+    url: "https://portfolio-ksaneeshkashyap.vercel.app/",
     siteName: "Aneesh Kashyap Portfolio",
     type: "website",
   },
