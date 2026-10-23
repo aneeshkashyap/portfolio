@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+import { personalInfo } from "@/data/resumeData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
-  description:
-    "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards in Power BI and React.",
+  description: personalInfo.bio,
   keywords: [
     "Aneesh Kashyap",
     "Software Engineering Candidate",
@@ -41,8 +41,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Aneesh Kashyap K S" }],
   openGraph: {
     title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
-    description:
-      "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards in Power BI and React.",
+    description: personalInfo.bio,
     url: "https://ksaneeshkashyapportfolio.vercel.app/",
     siteName: "Aneesh Kashyap Portfolio",
     type: "website",
@@ -50,8 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
-    description:
-      "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards in Power BI and React.",
+    description: personalInfo.bio,
   },
 };
 

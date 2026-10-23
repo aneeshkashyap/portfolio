@@ -77,7 +77,7 @@ export default function Hero({ onOpenResume, onOpenContact, onOpenAtsScore }: He
               Software Engineering Candidate & Data Analyst
             </p>
             <p className="text-base sm:text-lg text-zinc-300 mt-3 leading-relaxed max-w-xl">
-              Third-year Computer Science student with hands-on OOP programming experience (Python, C++) and solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards and visualizers in Power BI, React, and Recharts to transform complex data into actionable business decisions.
+              {personalInfo.bio}
             </p>
             <p className="text-xs sm:text-sm font-mono text-zinc-400 mt-2">
               Computer Science Engineering · SVCE Chennai · 8.1 CGPA · Class of 2028

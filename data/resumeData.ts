@@ -86,7 +86,7 @@ export const personalInfo: PersonalInfo = {
   location: "Chennai",
   github: "https://github.com/aneeshkashyap",
   linkedin: "https://linkedin.com/in/aneeshkashyap-k-s",
-  bio: "Third-year Computer Science Engineering student with hands-on OOP programming experience (Python, C++) and a solid grounding in data structures and algorithms. Experienced in end-to-end data analysis, cleaning large-scale operational datasets, and engineering analytical pipelines with Pandas, NumPy, and SQL. Skilled in exploratory data analysis (EDA), statistical pattern identification, and architecting interactive dashboards and visualizers in Power BI, React, and Recharts to transform complex data into actionable business decisions.",
+  bio: "Third-year Computer Science student focused on Data Analytics, with hands-on experience in Python, SQL, Pandas, NumPy, Exploratory Data Analysis (EDA), and Data Visualization. Developed data-driven projects involving Ola/Uber cancellation analysis, Delhi weather and AQI trends, sports footwear sales and consumer behavior, and ICC T20 World Cup 2024 cricket analytics. Skilled in data cleaning, preprocessing, statistical analysis, trend identification, visualization, and extracting actionable insights from datasets. Experienced in building interactive dashboards and AI assisted development workflows using Claude Code and Antigravity, leveraging rapid prototyping and vibe-coding to accelerate project development.",
   tagline: "Computer Science Engineering Student · SVCE Chennai · 8.1 CGPA",
   status: "Open to Software Engineering, Data Analytics, and Machine Learning Opportunities",
   semester: "5th Semester (at least 3 semesters remaining)",
