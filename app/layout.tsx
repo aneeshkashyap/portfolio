@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
-import { personalInfo } from "@/data/resumeData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,9 +13,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteSummary =
+  "Third-year Computer Science student focused on Data Analytics, with hands-on experience in Python, SQL, Pandas, NumPy, Exploratory Data Analysis (EDA), and Data Visualization. Developed data-driven projects involving Ola/Uber cancellation analysis, Delhi weather and AQI trends, sports footwear sales and consumer behavior, and ICC T20 World Cup 2024 cricket analytics. Skilled in data cleaning, preprocessing, statistical analysis, trend identification, visualization, and extracting actionable insights from datasets. Experienced in building interactive dashboards and AI assisted development workflows using Claude Code and Antigravity, leveraging rapid prototyping and vibe-coding to accelerate project development.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-ksaneeshkashyap.vercel.app"),
   title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
-  description: personalInfo.bio,
+  description: siteSummary,
   keywords: [
     "Aneesh Kashyap",
     "Software Engineering Candidate",
@@ -41,7 +44,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Aneesh Kashyap K S" }],
   openGraph: {
     title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
-    description: personalInfo.bio,
+    description: siteSummary,
     url: "https://portfolio-ksaneeshkashyap.vercel.app/",
     siteName: "Aneesh Kashyap Portfolio",
     type: "website",
@@ -49,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aneesh Kashyap | Software Engineering Candidate & Data Analyst",
-    description: personalInfo.bio,
+    description: siteSummary,
   },
 };
 
