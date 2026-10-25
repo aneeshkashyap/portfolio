@@ -52,38 +52,42 @@ export default function Navbar({ onOpenResume, onOpenAtsScore }: NavbarProps) {
           : "bg-transparent py-4 border-b border-white/5"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand / Name */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center text-zinc-950 font-bold font-mono text-sm shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-            AK
-          </div>
-          <div className="flex flex-col">
-            <span className="font-bold text-sm tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-              ANEESH KASHYAP
-            </span>
-            <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>SOFTWARE ENGINEERING CANDIDATE &amp; DATA ANALYST</span>
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 flex items-center justify-between gap-4">
+        {/* Brand / Name (Left) */}
+        <div className="flex-1 flex items-center justify-start min-w-0">
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center text-zinc-950 font-bold font-mono text-sm shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+              AK
             </div>
-          </div>
-        </Link>
+            <div className="flex flex-col">
+              <span className="font-bold text-sm tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+                ANEESH KASHYAP
+              </span>
+              <div className="hidden lg:flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 whitespace-nowrap">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span>SOFTWARE ENGINEERING CANDIDATE &amp; DATA ANALYST</span>
+              </div>
+            </div>
+          </Link>
+        </div>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-1 p-1 bg-zinc-900/60 border border-zinc-800/80 rounded-full backdrop-blur-md">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="px-3.5 py-1.5 text-xs font-mono text-zinc-400 hover:text-cyan-300 hover:bg-zinc-800/60 rounded-full transition-all"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Desktop Nav Links (Center - Exactly Centered with Equal Gaps) */}
+        <div className="hidden lg:flex items-center justify-center shrink-0">
+          <nav className="flex items-center gap-1.5 p-1.5 bg-zinc-900/70 border border-zinc-800/80 rounded-full backdrop-blur-md shadow-sm">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-3.5 xl:px-4 py-1.5 text-xs font-mono whitespace-nowrap text-zinc-400 hover:text-cyan-300 hover:bg-zinc-800/70 rounded-full transition-all"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-        {/* Right CTA Actions */}
-        <div className="hidden sm:flex items-center gap-2.5">
+        {/* Right CTA Actions (Right - Aligned to Far Right) */}
+        <div className="flex-1 hidden lg:flex items-center justify-end gap-2.5 xl:gap-3 shrink-0">
           {/* GitHub */}
           <a
             href={personalInfo.github}
@@ -142,8 +146,8 @@ export default function Navbar({ onOpenResume, onOpenAtsScore }: NavbarProps) {
           </button>
         </div>
 
-        {/* Mobile Hamburger Menu Toggle */}
-        <div className="flex sm:hidden items-center gap-2">
+        {/* Mobile / Tablet Hamburger Menu Toggle */}
+        <div className="flex lg:hidden items-center gap-2">
           {onOpenAtsScore && (
             <button
               onClick={onOpenAtsScore}
@@ -179,7 +183,7 @@ export default function Navbar({ onOpenResume, onOpenAtsScore }: NavbarProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="sm:hidden px-4 pt-3 pb-6 bg-zinc-950/95 border-b border-zinc-800 space-y-4">
+        <div className="lg:hidden px-4 pt-3 pb-6 bg-zinc-950/95 border-b border-zinc-800 space-y-4">
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Link
